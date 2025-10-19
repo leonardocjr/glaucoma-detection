@@ -10,9 +10,11 @@ Numpy, Pandas, Scikit Learn, Matplotlib
 
 ## Problem context
 **Introduction**
+
 Glaucoma is a progressive eye disease that can lead to irreversible vision loss if not detected early. It is one of the leading causes of blindness worldwide. Detecting glaucoma at an early stage is challenging because its symptoms are not easily noticeable, and the differences between healthy and glaucomatous eyes can be subtle in retinal images.
 
 **The Problem**
+
 We have to train a machine learning model capable of classifying retinal images to distinguish between healthy and glaucomatous eyes. Some of the main challenges of this task include:
 - High variability between patients' eyes.
 - Low-quality or noisy retinal images.
@@ -24,6 +26,7 @@ Figure 1 shows glaucomatous and healthy eye fundus images centered on the optic 
 Figure 1: Glaucomatous (left) and healthy (right) eye fundus images.
 
 **Proposed Solution**
+
 Convolutional Neural Networks (CNNs) offer a powerful solution for image classification tasks. By training a CNN on a large set of labeled retinal images, the network can automatically learn to extract relevant features and differentiate between healthy and glaucomatous cases.
 
 Key advantages of using CNNs:
