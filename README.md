@@ -8,7 +8,7 @@ Python
 ### Libraries
 Numpy, Pandas, Scikit Learn, Matplotlib
 
-## Problem context
+## Problem Context
 **Introduction**
 
 Glaucoma is a progressive eye disease that can lead to irreversible vision loss if not detected early. It is one of the leading causes of blindness worldwide. Detecting glaucoma at an early stage is challenging because its symptoms are not easily noticeable, and the differences between healthy and glaucomatous eyes can be subtle in retinal images.
