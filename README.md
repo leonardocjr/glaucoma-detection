@@ -23,6 +23,7 @@ We have to train a machine learning model capable of classifying retinal images 
 Figure 1 shows glaucomatous and healthy eye fundus images centered on the optic nerve head.
 
 <img width="656" height="303" alt="image" src="https://github.com/user-attachments/assets/d9086d28-ed94-4d83-aab3-a2630e6af289" />
+
 Figure 1: Glaucomatous (left) and healthy (right) eye fundus images.
 
 **Proposed Solution**
