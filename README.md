@@ -1,8 +1,6 @@
 # Explainable Glaucoma Detection from Retinal Images and Morphological features
 
 ## Project Summary
-### Team
-- Leonardo Canuto Junior
 ### Language
 Python
 ### Libraries
