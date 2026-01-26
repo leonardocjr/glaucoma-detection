@@ -1,0 +1,19 @@
+{
+  "group_id": "Group L",
+  "architecture": "resnet50",
+  "description": "ResNet-50 (ImageNet) fine-tuned for binary glaucoma screening using 5-fold StratifiedKFold CV. Training uses weighted CrossEntropyLoss, AdamW and ReduceLROnPlateau, with early stopping on validation balanced accuracy; per-fold ROC thresholding is used to maximize balanced accuracy.",
+  "training_details": {
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "optimizer": "AdamW",
+    "batch_size": 32,
+    "loss_function": "CrossEntropyLoss with class weights",
+    "data_augmentation": "Resize(224x224), RandomHorizontalFlip(p=0.5), RandomVerticalFlip(p=0.2), RandomRotation(10), ColorJitter",
+    "validation_balanced_accuracy": 0.90,
+    "cross_validation": true,
+    "num_folds": 5,
+    "submission_strategy": "best_fold_single_model",
+    "ensemble": false
+  }
+}
+

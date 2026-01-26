@@ -1,0 +1,27 @@
+================================================================================
+SUBMISSION VALIDATION REPORT
+================================================================================
+
+Timestamp: 2026-01-22 17:00:30
+
+Submission Info:
+  Group ID: Group L
+  Architecture: resnet50
+  Description: ResNet-50 (ImageNet) fine-tuned for binary glaucoma screening using 5-fold StratifiedKFold CV. Training uses weighted CrossEntropyLoss, AdamW and ReduceLROnPlateau, with early stopping on validation balanced accuracy; per-fold ROC thresholding is used to maximize balanced accuracy.
+
+Files Included:
+  - transforms.py (454 bytes)
+  - info.json (865 bytes)
+  - model.py (412 bytes)
+  - submission_report.txt (0 bytes)
+  - model.pth (94,369,461 bytes)
+
+Local Validation Results:
+  Accuracy: 96.55%
+  Total images: 174
+  Correct predictions: 168
+
+================================================================================
+Validation completed successfully!
+Ready for official evaluation.
+================================================================================

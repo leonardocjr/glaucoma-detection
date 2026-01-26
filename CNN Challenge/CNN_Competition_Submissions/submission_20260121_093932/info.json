@@ -1,0 +1,42 @@
+{
+  "group_id": "L",
+  "architecture": "VGG19_BN",
+  "description": "VGG19 with Batch Normalization transfer learning, frozen features, custom classifier head with dropout regularization, and class-weighted loss",
+  "training_details": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "weight_decay": 0.001,
+    "batch_size": 32,
+    "loss_function": "CrossEntropyLoss with class weights",
+    "scheduler": "ReduceLROnPlateau (patience=3, factor=0.5)",
+    "data_augmentation": "horizontal flip (p=0.3), rotation (10 degrees)",
+    "dropout": 0.7,
+    "transfer_learning": true,
+    "pretrained_weights": "ImageNet1K_V1",
+    "frozen_layers": "All feature layers",
+    "custom_head": {
+      "layer_1": "Linear(512 -> 256)",
+      "activation": "ReLU",
+      "dropout_1": 0.7,
+      "layer_2": "Linear(256 -> 2)",
+      "output": "Binary classification (normal/glaucoma)"
+    }
+  },
+  "dataset": {
+    "input_size": [224, 224],
+    "train_images": "Data from training_set/ (normal + glaucoma)",
+    "test_images": "Data from test_set/ (normal + glaucoma)",
+    "normalization": {
+      "mean": [0.485, 0.456, 0.406],
+      "std": [0.229, 0.224, 0.225]
+    }
+  },
+  "performance": {
+    "metric": "Balanced Accuracy",
+    "best_auc_achieved": "Saved as bip_model_competition_TIMESTAMP.pth",
+    "optimization_strategy": "Class-weighted loss for imbalanced data",
+    "threshold_optimization": true,
+    "best_threshold_range": "0.0 - 1.0 (optimized for balanced accuracy)"
+  }
+}

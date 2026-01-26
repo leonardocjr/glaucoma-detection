@@ -1,0 +1,87 @@
+================================================================================
+GLAUCOMA DETECTION COMPETITION - DETAILED EVALUATION REPORT
+================================================================================
+
+GROUP INFORMATION:
+--------------------------------------------------------------------------------
+Group ID:         L
+Architecture: VGG19_BN
+Description:  VGG19 with Batch Normalization transfer learning, frozen features, custom classifier head with dropout regularization, and class-weighted loss
+
+Training Details:
+  - epochs: 20
+  - learning_rate: 0.001
+  - optimizer: Adam
+  - weight_decay: 0.001
+  - batch_size: 32
+  - loss_function: CrossEntropyLoss with class weights
+  - scheduler: ReduceLROnPlateau (patience=3, factor=0.5)
+  - data_augmentation: horizontal flip (p=0.3), rotation (10 degrees)
+  - dropout: 0.7
+  - transfer_learning: True
+  - pretrained_weights: ImageNet1K_V1
+  - frozen_layers: All feature layers
+  - custom_head: {'layer_1': 'Linear(512 -> 256)', 'activation': 'ReLU', 'dropout_1': 0.7, 'layer_2': 'Linear(256 -> 2)', 'output': 'Binary classification (normal/glaucoma)'}
+
+Custom Transforms: Yes
+
+Evaluation Date: 2026-01-22 10:47:19
+
+================================================================================
+
+PERFORMANCE METRICS:
+--------------------------------------------------------------------------------
+Bal. Accuracy:0.7608 (76.08%)
+Accuracy:     0.7362 (73.62%)
+Precision:    0.4811
+Recall:       0.8095
+Sensitivity:  0.8095
+Specificity:  0.7120
+F1 Score:     0.6036
+AUC-ROC:      0.8669
+
+CONFUSION MATRIX:
+--------------------------------------------------------------------------------
+                    Predicted
+                    Normal    Glaucoma
+Actual Normal          136        55
+       Glaucoma         12        51
+
+DETAILED ANALYSIS:
+--------------------------------------------------------------------------------
+Total samples evaluated: 254
+Correctly classified: 187 (73.62%)
+Incorrectly classified: 67 (26.38%)
+
+Clinical Relevance:
+- True Positives (correctly identified glaucoma): 51
+- False Negatives (missed glaucoma cases): 12
+  * This is critical: missed glaucoma can lead to vision loss
+- False Positives (false alarms): 55
+  * These lead to unnecessary follow-up examinations
+- True Negatives (correctly identified normal): 136
+
+METRIC INTERPRETATION:
+--------------------------------------------------------------------------------
+Sensitivity (Recall): 0.8095
+  - Proportion of actual glaucoma cases correctly identified
+  - Higher is better for disease detection
+
+Specificity: 0.7120
+  - Proportion of normal cases correctly identified
+  - Higher means fewer false alarms
+
+Precision: 0.4811
+  - When model predicts glaucoma, how often is it correct?
+
+F1 Score: 0.6036
+  - Harmonic mean of precision and recall
+  - Good balance metric when classes may be imbalanced
+
+AUC-ROC: 0.8669
+  - Overall discriminative ability across all thresholds
+  - 1.0 = perfect, 0.5 = random guessing
+
+================================================================================
+END OF REPORT
+================================================================================

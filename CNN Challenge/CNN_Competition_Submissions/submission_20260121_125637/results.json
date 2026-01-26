@@ -1,0 +1,44 @@
+{
+    "group_id": "L",
+    "architecture": "VGG19_BN",
+    "training_details": {
+        "epochs": 20,
+        "learning_rate": 0.001,
+        "optimizer": "Adam",
+        "weight_decay": 0.001,
+        "batch_size": 32,
+        "loss_function": "CrossEntropyLoss with class weights",
+        "scheduler": "ReduceLROnPlateau (patience=3, factor=0.5)",
+        "data_augmentation": "horizontal flip (p=0.3), rotation (10 degrees)",
+        "dropout": 0.7,
+        "transfer_learning": true,
+        "pretrained_weights": "ImageNet1K_V1",
+        "frozen_layers": "All feature layers",
+        "custom_head": {
+            "layer_1": "Linear(512 -> 256)",
+            "activation": "ReLU",
+            "dropout_1": 0.7,
+            "layer_2": "Linear(256 -> 2)",
+            "output": "Binary classification (normal/glaucoma)"
+        }
+    },
+    "used_custom_transforms": true,
+    "metrics": {
+        "balanced accuracy": 0.7715033657442034,
+        "accuracy": 0.7283464566929134,
+        "precision": 0.47368421052631576,
+        "recall": 0.8571428571428571,
+        "sensitivity": 0.8571428571428571,
+        "specificity": 0.6858638743455497,
+        "f1_score": 0.6101694915254238,
+        "auc_roc": 0.8881409457325687
+    },
+    "confusion_matrix": {
+        "true_positives": 54,
+        "true_negatives": 131,
+        "false_positives": 60,
+        "false_negatives": 9
+    },
+    "total_samples": 254,
+    "evaluation_date": "2026-01-22 10:47:29"
+}

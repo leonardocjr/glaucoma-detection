@@ -1,0 +1,27 @@
+================================================================================
+SUBMISSION VALIDATION REPORT
+================================================================================
+
+Timestamp: 2026-01-21 12:55:37
+
+Submission Info:
+  Group ID: L
+  Architecture: VGG19_BN
+  Description: VGG19 with Batch Normalization transfer learning, frozen features, custom classifier head with dropout regularization, and class-weighted loss. In this approach, we utilize all images from the training_test and the test_set.
+
+Files Included:
+  - transforms.py (724 bytes)
+  - model.py (1,070 bytes)
+  - submission_report.txt (0 bytes)
+  - info.json (1,630 bytes)
+  - model.pth (562,598,986 bytes)
+
+Local Validation Results:
+  Accuracy: 99.32%
+  Total images: 146
+  Correct predictions: 145
+
+================================================================================
+Validation completed successfully!
+Ready for official evaluation.
+================================================================================
